@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .up {
+            background-color: rgb(41, 41, 41);
+            padding: 20px 0 20px;
+            margin: 0 0 20px;
+        }
+
+        .url {
+            text-decoration: 0;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        .url:hover:before {
+            -webkit-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            transform: scaleX(1);
+            -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+            transform-origin: left;
+            -webkit-transition: -webkit-transform 0.25s;
+            transition: -webkit-transform 0.25s;
+            -o-transition: transform 0.25s;
+            transition: transform 0.25s;
+            transition: transform 0.25s, -webkit-transform 0.25s;
+        }
+
+        .url:before {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            -webkit-transform: scaleX(0);
+            -ms-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transform-origin: right;
+            -ms-transform-origin: right;
+            transform-origin: right;
+            -webkit-transition: -webkit-transform 0.25s;
+            transition: -webkit-transform 0.25s;
+            -o-transition: transform 0.25s;
+            transition: transform 0.25s;
+            transition: transform 0.25s, -webkit-transform 0.25s;
+        }
+
+        .head {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+        }
+
+        .logout {
+            color: red;
+        }
+
+        .box:first-of-type {
+            text-align: center;
+        }
+
+        .up {
+            position: static;
+        }
+
+        .for {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+
+        .start {
+            display: flex;
+            justify-content: center;
+            align-content: space-around;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .res {
+            width: 100px;
+            height: 50px;
+        }
+
+        .config {
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        .button_cam {
+            padding: 5px 20px 5px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(41, 41, 41);
+        }
+
+        .button_cam:hover {
+            cursor: pointer;
+        }
+        .container{
+            padding:  0 30px 0; 
+        }
+    </style>
+
+<body>
+    <header class="up">
+        <div class="head">
+            <a href="#" class="url">HOME</a>
+            <a href="#" class="url">SETTING</a>
+            <a href="#" class="url">ABOUT</a>
+            <a href="#" class="url">COTACTS</a>
+            <a href="#" class="url">INFO</a>
+            <a href="./login.html" class="url, logout">LOGOUT</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="start">
+            <form class="config">
+                <label for="camera">Number IP cam:</label></br>
+                <select id="camera" name="camera">
+                    <option value="cam1">camera 1</option>
+                    <option value="cam2">camera 2</option>
+                    <option value="cam3">camera 3</option>
+                </select>
+            </form>
+            <div class="box">
+                <img src="{{ url_for('video') }}" width="50%" /></br>
+                <button class="button_cam">PLAY/PAUSE</button>
+                <button url="./index.html" class="button_cam">RESTART</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
